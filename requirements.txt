@@ -1,0 +1,10 @@
+streamlit
+crewai
+groq
+python-dotenv
+pandas
+plotly
+ipython
+langchain-groq
+langchain-google-genai
+langchain-community
