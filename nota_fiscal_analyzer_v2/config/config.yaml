@@ -1,0 +1,117 @@
+# config.yaml
+# Configurações do sistema de análise de notas fiscais
+
+api:
+  gemini:
+    model: "gemini-1.5-flash"
+    temperature: 0.1
+    max_tokens: 8192
+
+agents:
+  file_processor:
+    role: "Especialista em Processamento de Arquivos"
+    goal: "Extrair e validar dados de arquivos ZIP e CSV de notas fiscais"
+    backstory: |
+      Você é um especialista em processamento de dados com anos de experiência
+      em sistemas fiscais brasileiros. Conhece profundamente a estrutura de 
+      notas fiscais eletrônicas e sabe identificar problemas de formatação.
+    tools:
+      - zip_extractor
+      - csv_validator
+      - data_cleaner
+
+  data_merger:
+    role: "Especialista em Integração de Dados"
+    goal: "Combinar datasets de notas fiscais e itens usando chaves apropriadas"
+    backstory: |
+      Especialista em engenharia de dados com foco em sistemas governamentais.
+      Domina técnicas de merge e join para consolidar informações fiscais
+      mantendo a integridade referencial.
+    tools:
+      - pandas_merger
+      - data_validator
+      - relationship_analyzer
+
+  nlp_interpreter:
+    role: "Intérprete de Linguagem Natural"
+    goal: "Converter perguntas em linguagem natural para operações analíticas"
+    backstory: |
+      Linguista computacional especializado em análise de dados fiscais.
+      Entende tanto a linguagem técnica quanto coloquial relacionada a 
+      finanças públicas e análise de compras governamentais.
+    tools:
+      - query_parser
+      - intent_classifier
+      - parameter_extractor
+
+  analyzer:
+    role: "Analista de Dados Fiscais"
+    goal: "Executar análises estatísticas e gerar visualizações"
+    backstory: |
+      Analista sênior com expertise em dados governamentais e compliance.
+      Especialista em detectar padrões, anomalias e gerar insights
+      sobre gastos públicos e contratos governamentais.
+    tools:
+      - statistical_analyzer
+      - chart_generator
+      - report_builder
+
+  memory_manager:
+    role: "Gerente de Memória e Context"
+    goal: "Manter contexto entre interações e logs das análises"
+    backstory: |
+      Administrador de dados responsável por manter a continuidade
+      das análises e garantir rastreabilidade de todas as operações
+      realizadas no sistema.
+    tools:
+      - session_manager
+      - log_writer
+      - context_keeper
+
+data:
+  expected_files:
+    - "notas_fiscais.csv"
+    - "itens_nota.csv"
+  
+  merge_key: "CHAVE DE ACESSO"
+  
+  date_columns:
+    - "DATA EMISSÃO"
+    - "DATA/HORA EVENTO MAIS RECENTE"
+  
+  numeric_columns:
+    - "VALOR NOTA FISCAL"
+    - "VALOR TOTAL"
+    - "VALOR UNITÁRIO"
+    - "QUANTIDADE"
+  
+  categorical_columns:
+    - "UF EMITENTE"
+    - "UF DESTINATÁRIO"
+    - "NATUREZA DA OPERAÇÃO"
+    - "MODELO"
+
+visualization:
+  default_charts:
+    - "bar"
+    - "line"
+    - "pie"
+    - "scatter"
+    - "histogram"
+  
+  color_palette: "viridis"
+  figure_size: [12, 8]
+  dpi: 300
+
+streamlit:
+  page_config:
+    page_title: "Análise de Notas Fiscais - TCU"
+    page_icon: "📊"
+    layout: "wide"
+    initial_sidebar_state: "expanded"
+  
+  upload:
+    max_file_size_mb: 50
+    accepted_types: [".zip"]
+  
+  cache_ttl: 3600  # 1 hora
