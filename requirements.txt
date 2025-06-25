@@ -1,0 +1,24 @@
+# Sistema de Análise de Dados com CrewAI - Dependências
+
+# Core frameworks
+streamlit>=1.28.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# CrewAI and AI
+crewai[tools]>=0.28.0
+google-generativeai>=0.3.0
+
+# Visualization
+plotly>=5.15.0
+
+# Data handling
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# File handling
+pathlib2>=2.3.7
+
+# Development and debugging
+pyyaml>=6.0
+chardet>=5.0.0

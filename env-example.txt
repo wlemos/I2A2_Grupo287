@@ -1,0 +1,9 @@
+# .env.example
+# Copie este arquivo para .env e configure suas chaves
+
+# API Key do Google Gemini (obrigatória)
+GEMINI_API_KEY=sua_chave_api_aqui
+
+# Configurações opcionais
+STREAMLIT_PORT=8501
+STREAMLIT_HOST=localhost
